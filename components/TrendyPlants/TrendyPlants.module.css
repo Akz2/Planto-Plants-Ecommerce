@@ -1,0 +1,207 @@
+.section {
+  position: relative;
+  padding: 100px 0;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.bgAccent {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(139, 195, 74, 0.06) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.sectionTitleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 70px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.bracket {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 50px;
+  justify-content: space-between;
+}
+
+.bracketLine {
+  width: 18px;
+  height: 3px;
+  background: var(--accent-green);
+  border-radius: 2px;
+}
+
+.bracketLeft .bracketLine:first-child { align-self: flex-start; }
+.bracketLeft .bracketLine:last-child { align-self: flex-end; }
+.bracketRight .bracketLine:first-child { align-self: flex-end; }
+.bracketRight .bracketLine:last-child { align-self: flex-start; }
+
+/* Cards */
+.cardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.trendyCard {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 40px;
+  overflow: visible;
+  transition: var(--transition);
+  min-height: 280px;
+  position: relative;
+}
+
+.trendyCard:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.trendyCard.reverse {
+  flex-direction: row-reverse;
+}
+
+.cardImageWrap {
+  flex: 0 0 42%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 20px;
+  position: relative;
+  height: 300px;
+  overflow: visible;
+}
+
+.cardImage {
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+  transition: transform 0.4s ease;
+  position: absolute;
+  bottom: 0;
+  max-height: 320px;
+  width: auto;
+}
+
+.trendyCard:hover .cardImage {
+  transform: translateY(-12px) scale(1.03);
+}
+
+.cardContent {
+  flex: 1;
+  padding: 36px 40px 36px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.trendyCard.reverse .cardContent {
+  padding: 36px 20px 36px 40px;
+}
+
+.cardTitle {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 380px;
+}
+
+.cardPrice {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  letter-spacing: -0.5px;
+}
+
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btnBuy {
+  padding: 11px 28px;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btnBuy:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+.btnCart {
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btnCart:hover {
+  background: var(--accent-green);
+  border-color: var(--accent-green);
+}
+
+@media (max-width: 768px) {
+  .trendyCard,
+  .trendyCard.reverse {
+    flex-direction: column;
+    border-radius: 28px;
+    min-height: auto;
+    padding-top: 20px;
+  }
+  .cardImageWrap {
+    height: 200px;
+    flex: none;
+    width: 100%;
+  }
+  .cardContent,
+  .trendyCard.reverse .cardContent {
+    padding: 24px;
+    align-items: flex-start;
+  }
+}

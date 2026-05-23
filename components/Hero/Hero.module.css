@@ -1,0 +1,372 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: var(--nav-height);
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/hero-bg.png');
+  background-size: cover;
+  background-position: center bottom;
+  z-index: 0;
+}
+
+.heroBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 25, 10, 0.92) 0%,
+    rgba(13, 31, 13, 0.75) 50%,
+    rgba(10, 25, 10, 0.6) 100%
+  );
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  min-height: calc(100vh - var(--nav-height));
+}
+
+/* Left side */
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--text-primary);
+  letter-spacing: -2px;
+}
+
+.heroSubtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btnExplore {
+  padding: 13px 32px;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.3px;
+}
+
+.btnExplore:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+.btnLiveDemo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btnLiveDemo:hover {
+  color: var(--accent-green);
+}
+
+.playIcon {
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.btnLiveDemo:hover .playIcon {
+  background: var(--accent-green);
+  border-color: var(--accent-green);
+}
+
+/* Review Card */
+.reviewCard {
+  background: rgba(20, 40, 20, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  max-width: 300px;
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.reviewAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8bc34a, #4caf50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.reviewAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reviewName {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.reviewStars {
+  display: flex;
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.star {
+  color: var(--star-color);
+  font-size: 0.75rem;
+}
+
+.starHalf {
+  color: var(--star-color);
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+.reviewText {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Right side */
+.heroRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+/* Plant Card */
+.plantCard {
+  background: rgba(20, 40, 20, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  width: 280px;
+  position: relative;
+}
+
+.plantCardImage {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 16px;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+}
+
+.plantCard:hover .plantCardImage {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.plantCardTag {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.plantCardRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.plantCardName {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.arrowBtn {
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.arrowBtn:hover {
+  background: var(--accent-green);
+  border-color: var(--accent-green);
+}
+
+.btnBuyNow {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 16px;
+}
+
+.btnBuyNow:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: #fff;
+}
+
+.cardDots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transition: var(--transition);
+}
+
+.dot.active {
+  background: var(--text-primary);
+  width: 20px;
+  border-radius: 4px;
+}
+
+/* Scroll indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--accent-green), transparent);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+@media (max-width: 900px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+    gap: 40px;
+    text-align: center;
+    align-items: flex-start;
+    justify-items: center;
+  }
+  .heroTitle {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+  .heroSubtitle {
+    margin: 0 auto;
+  }
+  .heroActions {
+    justify-content: center;
+  }
+  .heroRight {
+    justify-content: center;
+  }
+  .reviewCard {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .plantCard {
+    width: 240px;
+  }
+}
